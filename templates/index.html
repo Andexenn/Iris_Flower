@@ -12,33 +12,72 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Fascinate&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
 </head>
 
 <body class="min-h-screen w-full p-5">
 
-    <h1 class="text-center text-white text-[100px] shadow-2xl rounded-xl font-[fascinate]">🌸Iris Flower🌸</h1>
+    <h1 class="text-center text-white text-[100px] shadow-2xl rounded-xl font-[fascinate]" data-aos="fade-down">🌸Iris
+        Flower🌸</h1>
 
-    <form class="inputs flex mt-15 justify-center gap-15">
-        <div class="sepal-length">
-            <h2 class="text-2xl font-bold text-cyan-800 font-[montserrat] text-center">Sepal length</h2>
-            <input class="border mt-3 border-purple-600 bg-white outline-none rounded shadow" type="text" name="sepal-length" id="" required>
+    <form class="flex flex-col"  method="POST"
+        action="{{ url_for('predict') }}">
+        <div class="inputs flex mt-15 justify-center gap-25" data-aos="zoom-in">
+            <div class="sepal-length flex flex-col">
+                <label class="text-3xl font-bold text-cyan-800 font-[montserrat] text-center" for="sepal_length">Sepal
+                    length</label>
+                <input class="infor border mt-3 border-purple-600 bg-white outline-none rounded shadow" type="text"
+                    name="sepal_length" id="sepal_length" required>
+            </div>
+            <div class="sepal-width flex flex-col">
+                <label class="text-3xl font-bold text-cyan-800 font-[montserrat] text-center" for="sepal_width">Sepal
+                    width</label>
+                <input class="infor border mt-3 border-purple-600 bg-white outline-none rounded shadow" type="text"
+                    name="sepal_width" id="sepal_width" required>
+            </div>
+            <div class="petal-length flex flex-col">
+                <label class="text-3xl font-bold text-cyan-400 font-[montserrat] text-center" for="petal_length">Petal
+                    length</label>
+                <input class="infor border mt-3 border-purple-600 bg-white outline-none rounded shadow" type="text"
+                    name="petal_length" id="petal_length" required>
+            </div>
+            <div class="pepal-width flex flex-col">
+                <label class="text-3xl font-bold text-cyan-400 font-[montserrat] text-center" for="petal_width">Petal
+                    width</label>
+                <input class="infor border mt-3 border-purple-600 bg-white outline-none rounded shadow" type="text"
+                    name="petal_width" id="petal_width" required>
+            </div>
         </div>
-        <div class="sepal-width">
-            <h2 class="text-2xl font-bold text-cyan-800 font-[montserrat] text-center">Sepal width</h2>
-            <input class="border mt-3 border-purple-600 bg-white outline-none rounded shadow" type="text" name="sepal-length" id="" required>
-        </div>
-        <div class="petal-length">
-            <h2 class="text-2xl font-bold text-cyan-400 font-[montserrat] text-center">Petal length</h2>
-            <input class="border mt-3 border-purple-600 bg-white outline-none rounded shadow" type="text" name="sepal-length" id="" required>
-        </div>
-        <div class="pepal-width">
-            <h2 class="text-2xl font-bold text-cyan-400 font-[montserrat] text-center">Petal width</h2>
-            <input class="border mt-3 border-purple-600 bg-white outline-none rounded shadow" type="text" name="sepal-length" id="" required>
+
+        <div class="w-full flex justify-center">
+            <button data-aos="fade-up" type="submit"
+                class="mt-15 px-4 py-2 text-4xl rounded-2xl shadow-2xl 
+            cursor-pointer bg-pink-300 font-[merriweather] hover:scale-90 hover:bg-black hover:text-pink-300 transition duration-300">
+                Submit
+            </button>
         </div>
     </form>
 
-    <input class="mx-auto" type="submit" value="Submit">
 
+
+    {% block content %}
+
+    {% endblock %}
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            AOS.init({
+                duration: 1200, // Thời gian hiệu ứng
+                easing: 'ease-in-out', // Loại easing
+                once: true, // Chạy hiệu ứng chỉ một lần
+                offset: 200 // Khoảng cách từ dưới đến khi hiệu ứng bắt đầu
+            });
+        });
+
+    </script>
+    <script src="../static/main.js"></script>
 
 </body>
 

@@ -12,9 +12,9 @@ y = iris.target #* 0 = Setosa, 1 = Versicolor, 2 = Virginica
 print("Tên các đặc trưng:", iris.feature_names)
 print("Tên các lớp:", iris.target_names)
 print("Dữ liệu đầu vào (X):")
-print(X[:5])  # Hiển thị 5 dòng đầu tiên
+print(X[:10])  # Hiển thị 5 dòng đầu tiên
 print("\nNhãn đầu ra (y):")
-print(y[:5])
+print(y[:10])
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state= 0, test_size=0.2)
 

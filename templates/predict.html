@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+{% if prediction == 0 %}
+    {% set flower_type = "Setosa" %}
+    {% set src = 'static\img\Setosa.jpg' %}
+    {% set href = 'https://www.istockphoto.com/vi/b%E1%BB%A9c-%E1%BA%A3nh/iris-setosa' %}
+{% elif prediction == 1 %}
+    {% set flower_type = "Versicolor" %}
+    {% set src = 'static\img\Versicolorjpg.jpg' %}
+    {% set href = 'https://www.istockphoto.com/vi/b%E1%BB%A9c-%E1%BA%A3nh/iris-versicolor' %}
+{% else %}
+    {% set flower_type = "Virginica" %}
+    {% set src = 'static\img\Virginicajpg1.jpg' %}
+    {% set href = 'https://www.shutterstock.com/search/iris-virginia' %}
+{% endif %}
+
+<div class="result text-center" data-aos="zoom-in">
+    <div class="mt-5 bg-white inline-block mx-auto">
+        <a href="{{href}}" target="_blank"><img class="result__img size-50" src="{{src}}" alt="{{flower_type}}"></a>
+        <p class="result__text text-center font-[montserrat] text-2xl font-bold p-2">{{flower_type}}</p>
+    </div>
+</div>
+{% endblock %}
